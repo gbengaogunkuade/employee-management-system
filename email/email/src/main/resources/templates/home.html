@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body style="padding: 15px;">
+<br>
+<div style="background-color: black; color: white; font-size: 20px; height: 1000px; width: 600px; padding: 15px;">
+    <br>
+    <div th:if="${param.success}">
+        <div class="alert alert-success">Confirmation Email Successfully Sent</div>
+    </div>
+
+    <img src="https://cdn.pixabay.com/photo/2023/02/10/08/00/woman-7780330_960_720.png" alt="" style="width: 100%; height: 500px;">
+    <br><br>
+    <span style="color: white">Dear </span>
+    <span style="color:deeppink;">
+        FIRSTNAME AND LASTNAME
+    </span>
+    <br><br>
+    <span style="color: white">
+        Thanks for contacting us.
+        <br><br>
+        We have received and will respond to your message below very soon via this email address provided:
+        <span>EMAIL</span>
+    </span>
+    <br><br>
+    <span style="color: white"><b>MESSAGE:</b></span>
+    <br>
+    <span style="color: white">MESSAGE BODY HERE</span>
+    <br><br>
+    <a href="#">Go back to our site</a>
+</div>
+
+
+<div style="background-color: black; color: white; font-size: 20px; width: 600px; padding: 15px; border-top: 2px solid white; text-align: center">
+    <!--FOOTER FRAGMENT-->
+    <span style="color:#ffffff">© 2022 - Gbenga Ogunkuade</span>
+</div>
+
+</body>
+</html>

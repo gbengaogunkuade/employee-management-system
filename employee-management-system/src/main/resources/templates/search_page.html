@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: header-fragment"></head>
+
+
+<body>
+
+<div th:replace="fragments :: navigation_menu_fragment"></div>
+<br><br>
+
+
+<div class="container">
+
+    <div th:if="${param.invalidsearch}" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+        <div class="alert alert-danger">
+            Sorry, we couldn't process your search, try again
+            <br>
+            make sure your keyword contains atleast 3 characters
+        </div>
+    </div>
+
+    <div th:if="${param.emptysearch}" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+        <div class="alert alert-primary">Sorry, we found no Employee matching your search keyword <span th:if="${searchedWorld}" th:text="searchedWorld"></span> </div>
+    </div>
+
+
+    <div th:if="${searchResponseList}" style="font-family: 'Dosis', sans-serif; font-size: 20px;">Employees found with the keywords <span th:text="${searchedWorld}" style="color: brown; font-size: 30px;"></span> in their Firstnames or Lastnames</div>
+
+    <br>
+
+    <div th:if="${searchResponseList}" class="container" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+        <div class="row">
+            <div th:each="searchResponse : ${searchResponseList}" class="col-md-3 card">
+                <a th:href="@{/{username} (username=${searchResponse.username})}">
+                    <img th:src="@{/images/PIX11.png}" class="card-img-top" alt="...">
+                    <div class="card-body" style="text-align: center">
+                        <h1 th:text="${searchResponse.username}"></h1>
+                        <div>
+                            <span th:text="${searchResponse.firstname.toUpperCase()}"></span>
+                            <span th:text="${searchResponse.lastname.toUpperCase()}"></span>
+                            <br>
+                            <span th:text="${searchResponse.email}" style="color: blue;"></span>
+                            <br>
+                            <span th:text="${searchResponse.lane1}" style="color: indianred;"></span>
+                            <span th:text="${searchResponse.lane2}" style="color: indianred;"></span>
+                            <br>
+                            <span th:text="${searchResponse.zip}" style="color: indianred;"></span>
+                            |
+                            <span th:text="${searchResponse.state}" style="color: indianred;"></span>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<br>
+<br>
+
+<br><br>
+<div th:replace="fragments :: footer_fragment"></div>
+
+</body>
+</html>
+
+
