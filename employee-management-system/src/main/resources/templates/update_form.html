@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: header-fragment"></head>
+
+<body>
+
+<div th:replace="fragments :: navigation_menu_fragment"></div>
+<br><br>
+
+
+
+<div class="container" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+	<div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+		<div class="card">
+			<div class="card-header">
+				<h1>Update</h1>
+			</div>
+			<div class="card-block" style="padding: 24px;">
+
+				<form th:action="@{/{username}/update (username = ${usernameToBeUpdated})}" method="post" th:object="${emsUpdateRequest}">
+					<fieldset>
+
+						<div th:if="${param.success}">
+							<div class="alert alert-info">User has been successfully updated</div>
+						</div>
+
+
+						<!-- ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('*')}">
+							<span class="btn btn-danger text-center" style="font-style: italic;">Please correct the error(s) below to continue</span>
+						</div>
+
+
+						<div class="form-group">
+							<label class="control-label" for="firstname">Firstname</label>
+							<input id="firstname" name="firstname" class="form-control" th:field="*{firstname}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- FIRSTNAME ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('firstname')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('firstname')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="lastname">Lastname</label>
+							<input id="lastname" name="lastname" class="form-control" th:field="*{lastname}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- LASTNAME ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('lastname')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('lastname')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="email">Email</label>
+							<input id="email" name="email" class="form-control" th:field="*{email}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- EMAIL ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('email')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('email')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label for="genders">Select your gender here </label>
+							<select class="form-control" name="genders" id="genders" th:field="*{gender}" required autofocus="autofocus">
+								<!-- <option value="0">Select Option</option> -->
+								<option th:each="gender : ${genderList}" th:value="${gender}" th:text="${gender}"></option>
+							</select>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="lane1">Lane1</label>
+							<input id="lane1" name="lane1" class="form-control" th:field="*{lane1}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- LANE1 ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('lane1')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('lane1')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="lane2">Lane2</label>
+							<input id="lane2" name="lane2" class="form-control" th:field="*{lane2}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- LANE2 ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('lane2')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('lane2')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="zip">Zip</label>
+							<input id="zip" name="zip" class="form-control" th:field="*{zip}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- ZIP ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('zip')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('zip')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<label class="control-label" for="state">State</label>
+							<input id="state" name="state" class="form-control" th:field="*{state}"
+								   required autofocus="autofocus" />
+						</div>
+						<!-- STATE ERROR HANDLING -->
+						<div th:if="${#fields.hasErrors('state')}">
+							<ul style="color:red; font-style: italic;">
+								<li th:each="error : ${#fields.errors('state')}" th:text="${error}"></li>
+							</ul>
+						</div>
+
+						<br>
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Update</button>
+
+							<span style="margin-left: 35px;">Already registered? <a th:href="@{/login}" class="btn btn-primary">Login here</a></span>
+						</div>
+						<br>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<br><br>
+
+<div th:replace="fragments :: footer_fragment"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: header-fragment"></head>
+
+
+<body>
+
+<div th:replace="fragments :: navigation_menu_fragment"></div>
+<br>
+
+<div class="container" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+        <div class="card">
+            <div class="card-header">
+                <h1>Login</h1>
+            </div>
+            <div class="card-block" style="padding: 24px;">
+                <form th:action="@{/login}" method="POST" >
+                    <fieldset>
+
+                        <div th:if="${param.error}" class="alert alert-danger">
+                            Invalid username and password.
+                        </div>
+
+                        <div th:if="${param.logout}" class="alert alert-success">
+                            You have been logged out.
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                   placeholder="Password">
+                        </div>
+
+                        <br>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember-me" name="remember-me">
+                            <label class="form-check-label" for="remember-me">Remember me?</label>
+                        </div>
+
+                        <br>
+
+                        <div class="form-actions" style="margin-top: 12px;">
+                            <button type="submit" class="btn btn-success">Log in</button>
+                            <span style="margin-left: 35px;">If You Are A New User? <a th:href="@{/registration}" class="btn btn-primary" style="color: white">Register here</a></span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div th:replace="fragments :: footer_fragment"></div>
+
+
+</body>
+</html>
+
+

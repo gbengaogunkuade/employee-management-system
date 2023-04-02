@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: header-fragment"></head>
+
+
+<body class="bg-light">
+
+<div th:replace="fragments :: navigation_menu_fragment"></div>
+<br><br>
+
+
+
+<div class="container-fluid pt-3" style="background-color: white; font-family: 'Dosis', sans-serif;">
+    <div class="row">
+        <div class="col-md-12">
+            <div th:if="${param.success}">
+                <div class="alert alert-info" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">You have successfully updated your profile, <strong><span th:text="${emsResponse.userResponse.username}"></span></strong></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid mb-3 px-5 pb-5" style="max-width: 100%; background-color: white; font-family: 'Dosis', sans-serif;">
+    <div class="row g-0">
+        <div class="col-md-5 card-body">
+            <img th:src="@{/images/PIX11.png}" class="card-img-left" alt="..." width="100%">
+        </div>
+        <div class="col-md-7">
+            <div class="card-body" style="font-size: 20px;">
+
+                <span class="card-title" th:text="${emsResponse.userResponse.username}" style="font-size: 70px; font-family: 'Dosis', sans-serif; text-shadow: 3px 3px 3px black;"></span>
+
+                <div style="border-top: 2px solid black; margin-top: 0px; margin-bottom: 30px; font-size: 24px; text-align: left; border-bottom: 2px solid black; padding-top: 10px; padding-bottom: 10px; font-family: 'Dosis', sans-serif;">
+                    <span th:text="${emsResponse.userResponse.firstname.toUpperCase()}"></span> <span th:text="${emsResponse.userResponse.lastname.toUpperCase()}"></span>
+                    <br>
+                    <span th:text="${emsResponse.userResponse.gender}" style="color: darkslategrey;"></span>
+                    <br>
+                    <span th:text="${emsResponse.userResponse.email}" style="color: blue;"></span>
+                    <br>
+                    <span th:text="${emsResponse.addressResponse.lane1}" style="color: indianred;"></span>
+                    <br>
+                    <span th:text="${emsResponse.addressResponse.lane2}" style="color: indianred;"></span>
+                    <br>
+                    <span th:text="${emsResponse.addressResponse.zip}" style="color: indianred;"></span>
+                    <br>
+                    <span th:text="${emsResponse.addressResponse.state}" style="color: indianred;"></span>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a th:href="@{/{username}/update (username = ${emsResponse.userResponse.username})}" class="btn btn-info" style="font-size: 20px; width: 100%;">Update</a>
+                        </div>
+                        <div class="col-md-4" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPERADMIN')">
+                            <span>
+                                <form th:if="${adminType}" th:action="@{/{username}/to-user (username = ${emsResponse.userResponse.username})}" method="POST">
+                                    <button class="btn btn-warning" type="submit" style="font-size: 20px; width: 100%;">Make A User</button>
+                                </form>
+
+                                <form th:if="${userType}" th:action="@{/{username}/to-admin (username = ${emsResponse.userResponse.username})}" method="POST">
+                                    <button class="btn btn-warning" type="submit" style="font-size: 20px; width: 100%;">Make An Admin</button>
+                                </form>
+                            </span>
+                        </div>
+                        <div class="col-md-4">
+                            <form th:action="@{/{username}/delete (username = ${emsResponse.userResponse.username})}" method="POST">
+                                <button class="btn btn-danger" type="submit" style="font-size: 20px; width: 100%;">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="fragments :: footer_fragment"></div>
+
+</body>
+</html>
+
+

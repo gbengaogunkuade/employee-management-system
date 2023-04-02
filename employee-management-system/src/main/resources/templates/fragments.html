@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="header-fragment">
+
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{/css/gbengaStyle.css}">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<body>
+
+<div th:fragment="navigation_menu_fragment">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="color: white">
+    <a class="navbar-brand" href="#"><h1 style="color: white; margin-left: 15px; font-weight: bold;">EMS <i class="bi bi-people" style="font-weight: bolder"></i></h1></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item" style="margin-left: 10px;">
+                <a class="navbar-brand btn btn-warning btn-sm" th:href="@{/home}">Home</a>
+          </li>
+
+          <li sec:authorize="isAuthenticated() && hasRole('ROLE_ADMIN')" class="nav-item" >
+              <a class="navbar-brand btn btn-info btn-sm" th:href="@{/all}">Users Directory</a>
+          </li>
+
+          <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="navbar-brand btn btn-success btn-sm" th:href="@{/{username} (username = ${currentUser})}"><span th:if="${currentUser}" th:text="${currentUser.toUpperCase()}"></span> Profile</a>
+          </li>
+
+        <li sec:authorize="isAnonymous()" class="nav-item">
+          <a  class="navbar-brand btn btn-info btn-sm" th:href="@{/registration}">Register</a>
+        </li>
+
+        <li sec:authorize="isAnonymous()" class="nav-item">
+          <a  class="navbar-brand btn btn-light btn-sm" th:href="@{/login}">Login</a>
+        </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" form-method="POST">
+            <button sec:authorize="isAuthenticated()" class="navbar-brand btn btn-danger btn-sm" type="submit">Logout</button>
+        </form>
+
+        <form class="d-flex" th:action="@{/search}" method="POST">
+            <input class="form-control me-2" style="width: 200px" type="text" id="wordToSearch" name="wordToSearch" placeholder="Search">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+  </nav>
+</div>
+
+
+<br><br>
+
+<div class="container-fluid footer fixed-bottom bg-dark mt-2" th:fragment="footer_fragment">
+    <div class="row">
+        <div class="col-md-12 pt-2 pb-2" align="center">
+            <span style="color:#ffffff; font-family: 'Dosis', sans-serif; font-size: 20px;">© 2023 - Gbenga Ogunkuade</span>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

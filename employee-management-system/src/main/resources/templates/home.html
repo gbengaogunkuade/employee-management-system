@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments :: header-fragment"></head>
+
+
+
+
+<body class="bg-light">
+
+<div th:replace="fragments :: navigation_menu_fragment"></div>
+<br><br>
+
+
+
+<div class="container-fluid pt-3" style="font-family: 'Dosis', sans-serif; font-size: 20px;">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div th:if="${param.unauthorizedProfile}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Sorry the username either does not exist or you are simply trying to view another user's profile</div>
+            </div>
+
+            <div th:if="${param.unauthorizedDelete}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Only the real user or an Admin can delete a user's profile</div>
+            </div>
+
+            <div th:if="${param.unauthorizedUpdate}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Sorry you are not authorized to update this user's profile. Only the authorized user or an Administrator can update another user's profile</div>
+            </div>
+
+            <div th:if="${param.unauthorizedAllUsersView}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Sorry you are not authorized to view all users. Only an authorized Administrator or Super Administrator can view all users</div>
+            </div>
+
+            <div th:if="${param.unauthorizedMakeAdmin}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Sorry you are not authorized to make this user an Administrator. Only an authorized Administrator or Super Administrator can make a user an Administrator</div>
+            </div>
+            <div th:if="${param.unauthorizedMakeUser}">
+                <div class="alert alert-danger" style="width: 100%; font-family: 'Dosis', sans-serif; font-size: 20px;">Sorry you are not authorized to make this user a Super Administrator. Only an authorized Administrator or Super Administrator can make a user a Super Administrator</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid mb-3 px-5" style="max-width: 100%;">
+    <div class="row g-0">
+        <div class="col-md-12 px-2">
+            <img th:src="@{/images/BANNER1.png}" class="img-fluid rounded-start" alt="..."  width="100%">
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<div th:replace="fragments :: footer_fragment"></div>
+
+
+</body>
+</html>
+
+
+
+
