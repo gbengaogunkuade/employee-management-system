@@ -1,6 +1,7 @@
 # ems 👷‍♂️
 ### Employee Management System Developed By **Gbenga Ogunkuade**
-![Gbenga Ogunkuade](https://github.com/gbengaogunkuade/ems/blob/main/GB-PROFILE-PIX.jpg)
+
+![This is another image](https://github.com/gbengaogunkuade/ems/blob/main/EMS-HOMEPAGE.png)
 
 ### Different Microservices all working together to deliver a wonderful Employee Management System
 
