@@ -1,5 +1,6 @@
-# ems - Employee Management System
-Employee Management System Developed By **Gbenga Ogunkuade**
+# ems 👷‍♂️
+### Employee Management System Developed By **Gbenga Ogunkuade**
+![This is another image](/assets/images/GB-PROFILE-PIX.jpg)
 
 ### Different Microservices all working together to deliver a wonderful Employee Management System
 
@@ -17,6 +18,6 @@ Technologies include the below:
 - HTML, CSS, Bootstrap and Javascript for FrontEnd
 - JAVA and Spring Boot for BackEnd
 
-![This is another image](/assets/images/GB-PROFILE-PIX.jpg)
+
 
 
