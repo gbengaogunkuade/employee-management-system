@@ -17,7 +17,7 @@ Technologies include the below:
 - Unit Testing and Integration Testing
 - HTML, CSS, Bootstrap and Javascript for FrontEnd
 - JAVA and Spring Boot for BackEnd
-
+- and many more (Work still in progress... 🖱️)
 
 
 
