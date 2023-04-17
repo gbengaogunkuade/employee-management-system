@@ -3,7 +3,9 @@
 
 ![This is another image](https://github.com/gbengaogunkuade/ems/blob/main/EMS-HOMEPAGE.png)
 
-### Different Microservices all working together to deliver a wonderful Employee Management System
+### This Application is made up of different Microservices, all working together to deliver a wonderful Employee Management System
+
+Above is a screenshot of Frontend of the Application while the beauty lies in the Backend where you get to see the power of Security and Well-Design API services
 
 Technologies include the below:
 - Microservices
