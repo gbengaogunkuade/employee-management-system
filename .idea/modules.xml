@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EMPLOYEE-MANAGEMENT-SYSTEM-2.iml" filepath="$PROJECT_DIR$/.idea/EMPLOYEE-MANAGEMENT-SYSTEM-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/address/address.iml" filepath="$PROJECT_DIR$/address/address.iml" />
       <module fileurl="file://$PROJECT_DIR$/Address/demo.iml" filepath="$PROJECT_DIR$/Address/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/discovery-dervice/discovery-dervice.iml" filepath="$PROJECT_DIR$/discovery-dervice/discovery-dervice.iml" />
       <module fileurl="file://$PROJECT_DIR$/employee-management-system/employee-management-system.iml" filepath="$PROJECT_DIR$/employee-management-system/employee-management-system.iml" />

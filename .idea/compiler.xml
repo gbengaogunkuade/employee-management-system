@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="discovery-dervice" />
+        <module name="address" />
         <module name="employee-management-system" />
         <module name="demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="address" target="17" />
       <module name="demo" target="17" />
       <module name="discovery-dervice" target="17" />
       <module name="employee-management-system" target="17" />
@@ -19,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="address" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="discovery-dervice" options="-parameters" />
       <module name="employee-management-system" options="-parameters" />
